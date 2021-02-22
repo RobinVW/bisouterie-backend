@@ -25,6 +25,14 @@
       }
     },
     {
+      "method": "GET",
+      "path": "/products/slug/:slug",
+      "handler": "products.findSlug",
+      "config": {
+        "policies": []
+      }
+    },
+    {
       "method": "POST",
       "path": "/products",
       "handler": "products.create",
