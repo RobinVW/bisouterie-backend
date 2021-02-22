@@ -8,9 +8,10 @@ module.exports = {
    */
 
   async findSlug(ctx) {
-    const { slug } = ctx.params;
+    const { Slug } = ctx.params;
+    console.log(Slug);
 
-    const entity = await strapi.services.restaurant.findSlug({ slug });
-    return sanitizeEntity(entity, { model: strapi.models.product });
+    const entity = await strapi.services.products.findOne({ Slug });
+    return sanitizeEntity(entity, { model: strapi.models.products });
   },
 };

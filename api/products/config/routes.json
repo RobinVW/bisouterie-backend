@@ -26,7 +26,7 @@
     },
     {
       "method": "GET",
-      "path": "/products/slug/:slug",
+      "path": "/products/slug/:Slug",
       "handler": "products.findSlug",
       "config": {
         "policies": []
