@@ -27,7 +27,9 @@
       "model": "file",
       "via": "related",
       "allowedTypes": [
-        "images"
+        "files",
+        "images",
+        "videos"
       ],
       "plugin": "upload",
       "required": false
@@ -40,6 +42,10 @@
     },
     "subcategory": {
       "model": "subcategory"
+    },
+    "Slug": {
+      "type": "uid",
+      "targetField": "Name"
     }
   }
 }
