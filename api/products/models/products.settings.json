@@ -24,7 +24,7 @@
       "type": "integer"
     },
     "Image": {
-      "model": "file",
+      "collection": "file",
       "via": "related",
       "allowedTypes": [
         "files",
