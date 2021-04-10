@@ -1,0 +1,25 @@
+{
+  "kind": "singleType",
+  "collectionName": "home_welcome_images",
+  "info": {
+    "name": "home-welcome-image"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "image": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false
+    }
+  }
+}

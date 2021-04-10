@@ -1,0 +1,28 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/home-welcome-image",
+      "handler": "home-welcome-image.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/home-welcome-image",
+      "handler": "home-welcome-image.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/home-welcome-image",
+      "handler": "home-welcome-image.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}
