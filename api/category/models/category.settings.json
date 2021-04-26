@@ -13,6 +13,9 @@
   "attributes": {
     "Name": {
       "type": "string"
+    },
+    "subcategories": {
+      "collection": "subcategory"
     }
   }
 }
