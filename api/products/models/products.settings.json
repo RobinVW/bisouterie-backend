@@ -46,6 +46,10 @@
     "Slug": {
       "type": "uid",
       "targetField": "Name"
+    },
+    "orders": {
+      "via": "products",
+      "collection": "order"
     }
   }
 }
