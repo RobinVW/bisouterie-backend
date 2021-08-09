@@ -25,6 +25,7 @@
     "strapi-plugin-magic": "^0.9.0",
     "strapi-plugin-upload": "3.5.0",
     "strapi-plugin-users-permissions": "3.5.0",
+    "strapi-provider-email-nodemailer": "^3.6.6",
     "strapi-provider-upload-cloudinary": "^3.5.0",
     "strapi-utils": "3.5.0"
   },
