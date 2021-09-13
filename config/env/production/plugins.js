@@ -12,20 +12,20 @@ module.exports = ({ env }) => ({
       delete: {},
     },
   },
-  email:{
-    provider: env('EMAIL_PROVIDER'),
-    providerOptions: {
-      host: env('EMAIL_SMTP_HOST'),
-      port: env('EMAIL_SMTP_PORT'),
-      auth: {
-        user: env('EMAIL'),
-        pass: env('EMAILPW'),
-      }
-    }
-  },
-  settings:{
-    defaultFrom: env('EMAIL'),
-    defaultReplyTo: env('EMAIL')
-  },
+  // email:{
+  //   provider: env('EMAIL_PROVIDER'),
+  //   providerOptions: {
+  //     host: env('EMAIL_SMTP_HOST'),
+  //     port: env('EMAIL_SMTP_PORT'),
+  //     auth: {
+  //       user: env('EMAIL'),
+  //       pass: env('EMAILPW'),
+  //     }
+  //   }
+  // },
+  // settings:{
+  //   defaultFrom: env('EMAIL'),
+  //   defaultReplyTo: env('EMAIL')
+  // },
   // ...
 });

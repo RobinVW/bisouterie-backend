@@ -21,10 +21,11 @@ module.exports = {
         text: body.message +' | Sent from: ' +body.email,
         html: `<div>${body.message}</div><p>Sent from: ${body.email}</p>`
       }
-      await strapi.plugins['email'].services.email.send(emailOptions)
-      strapi.log.debug(`Email sent to ${sendTo}`)
+      await strapi.services.email.send(emailOptions)
+      strapi.log.debug(`Email sent to ${from}`)
       ctx.send({ message: 'Email sent' })
     } catch (err) {
+      console.log(err);
       strapi.log.error(`Error sending email to bisouterie.amelie@gmail.com`, err)
     //   ctx.send({ error: 'Error sending email' })
       ctx.send(err);
