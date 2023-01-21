@@ -28,6 +28,7 @@
     "googleapis": "^85.0.0",
     "jquery": "^3.6.0",
     "knex": "^0.21.18",
+    "node-postgres": "^0.6.2",
     "nodemailer": "^6.6.3",
     "pg": "^8.5.1",
     "pg-connection-string": "^2.4.0",
