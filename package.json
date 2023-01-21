@@ -6,7 +6,9 @@
   "scripts": {
     "develop": "strapi develop",
     "start": "strapi start",
+    "start:win": "cross-env NODE_ENV=production npm run start",
     "build": "strapi build",
+    "build:win": "cross-env NODE_ENV=production npm run build",
     "strapi": "strapi",
     "preinstall": "npx npm-force-resolutions"
   },
@@ -22,6 +24,7 @@
   },
   "dependencies": {
     "@mollie/api-client": "^3.4.0",
+    "cross-env": "^7.0.3",
     "googleapis": "^85.0.0",
     "jquery": "^3.6.0",
     "knex": "^0.21.21",
@@ -48,9 +51,9 @@
     "uuid": "5d6fa6f5-eacd-412b-8f19-914efc60cc6b"
   },
   "engines": {
-    "node": ">=10.16.0 <=14.x.x",
-    "npm": "^6.0.0"
-  },
+    "node": "16.14.2",
+    "npm": ">=6.0.0"
+   },
   "license": "MIT",
   "devDependencies": {
     "immer": "^9.0.15"
