@@ -1,3 +1,4 @@
 module.exports = ({ env }) => ({
-    url: env('RAILWAY_URL'),
+  host: env('0.0.0.0'),
+  port: env.int(7171),
   });
