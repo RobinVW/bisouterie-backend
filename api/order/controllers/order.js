@@ -87,8 +87,8 @@ module.exports = {
               value: total.toFixed(2).toString(), // You must send the correct number of decimals, thus we enforce the use of strings
             },
             description: `OrderId ${orderCount + 1}: van ${user.username}, op ${new Date().toString()}`,
-            redirectUrl: `http://localhost:3000/afrekenen/confirm?orderId=${orderCount + 1}`,
-            webhookUrl: 'http://9797a9bf7869.ngrok.io/api/mollie-webhook',
+            redirectUrl: `https://bisouterie-frontend-rita2zbcx-robinvw.vercel.app/afrekenen/confirm?orderId=${orderCount + 1}`,
+            webhookUrl: 'https://bisouterie-frontend-rita2zbcx-robinvw.vercel.app/api/mollie-webhook',
             metadata: {
               order_id: (orderCount + 1).toString(),
             },
