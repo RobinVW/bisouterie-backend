@@ -127,10 +127,10 @@ module.exports = {
 
           console.log(payment);
           console.log('----------------------');
-          const { id }= newOrder.id;
+          console.log(newOrder.id);
           
           //na het aanmaken van de payment het mollie id wegschrijven naar de strapi-db
-          const updatedOrderWithMollieId = await strapi.services.order.update({id}, {mollie_id: payment.id});
+          const updatedOrderWithMollieId = await strapi.services.order.update({id: newOrder.id}, {mollie_id: payment.id});
           console.log(updatedOrderWithMollieId);
 
           return payment;
