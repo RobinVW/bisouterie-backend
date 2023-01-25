@@ -103,15 +103,15 @@ module.exports = {
             user: user.id,
             totalPrice: total.toFixed(2),
             status: 'unpaid',
-            mollie_id: payment.id,
+            //mollie_id: payment.id,
             products: products,
             phone: userData.phoneNumber,
             orderedBy: orderedBy,
             delivery: delivery
           })
-
+          console.log('----------------------');
           console.log(newOrder)
-
+          console.log('----------------------');
           const payment = await mollieClient.payments.create({
             amount: {
               currency: 'EUR',
@@ -124,8 +124,13 @@ module.exports = {
               order_id: (newOrder.id).toString(),
             },
           });
-      
+
           console.log(payment);
+          console.log('----------------------');
+          
+          //na het aanmaken van de payment het mollie id wegschrijven naar de strapi-db
+          const updatedOrderWithMollieId = await strapi.services.order.update({id}, {mollie_id: payment.id});
+          console.log(updatedOrderWithMollieId);
 
           return payment;
         } catch (error) {
