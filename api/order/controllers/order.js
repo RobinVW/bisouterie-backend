@@ -135,7 +135,7 @@ module.exports = {
        const { user } = ctx.state;
        
        console.log('id = ' + id);
-       console.log('user = ' + user);
+       console.log('user = ' + user.id);
        const oldOrder = await strapi.services.order.findOne({id,user: user.id});
       console.log(oldOrder);
        //check of order paid is
