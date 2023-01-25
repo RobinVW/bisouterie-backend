@@ -63,7 +63,7 @@ module.exports = {
 
         //initialiseer totale prijs & orderCount
         let total = 0;
-        let orderCount = await strapi.services.order.count();
+        //let orderCount = await strapi.services.order.count();
         const products = [];
       
         //checked of items bestaan, zoja som maken van de item(s)
@@ -81,20 +81,6 @@ module.exports = {
         const { user } = ctx.state;
         
         try {
-          const payment = await mollieClient.payments.create({
-            amount: {
-              currency: 'EUR',
-              value: total.toFixed(2).toString(), // You must send the correct number of decimals, thus we enforce the use of strings
-            },
-            description: `OrderId ${orderCount + 1}: van ${user.username}, op ${new Date().toString()}`,
-            redirectUrl: `https://bisouterie-frontend.vercel.app/afrekenen/confirm?orderId=${orderCount + 1}`,
-            webhookUrl: 'https://bisouterie-frontend.vercel.app/api/mollie-webhook',
-            metadata: {
-              order_id: (orderCount + 1).toString(),
-            },
-          });
-      
-          console.log(payment);
           let adress = '';
           let orderedBy = `${userData.firstName} ${userData.lastName}`;
           let delivery;
@@ -123,6 +109,24 @@ module.exports = {
             orderedBy: orderedBy,
             delivery: delivery
           })
+
+          console.log(newOrder)
+
+          const payment = await mollieClient.payments.create({
+            amount: {
+              currency: 'EUR',
+              value: total.toFixed(2).toString(), // You must send the correct number of decimals, thus we enforce the use of strings
+            },
+            description: `OrderId ${newOrder.id}: van ${user.username}, op ${new Date().toString()}`,
+            redirectUrl: `https://bisouterie-frontend.vercel.app/afrekenen/confirm?orderId=${newOrder.id}`,
+            webhookUrl: 'https://bisouterie-frontend.vercel.app/api/mollie-webhook',
+            metadata: {
+              order_id: (newOrder.id).toString(),
+            },
+          });
+      
+          console.log(payment);
+
           return payment;
         } catch (error) {
           console.warn(error);
@@ -136,8 +140,8 @@ module.exports = {
        
        console.log('id = ' + id);
        console.log('user = ' + user.id);
-       const oldOrder = await strapi.services.order.findOne({id,user: user.id});
-      console.log(oldOrder);
+       const oldOrder = await strapi.services.order.findOne({ id, user: user.id});
+       console.log(oldOrder);
        //check of order paid is
        const payment = await mollieClient.payments.get(oldOrder.mollie_id);
        if (payment.isPaid()){
