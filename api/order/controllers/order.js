@@ -174,34 +174,34 @@ module.exports = {
                 productenString += item.Name + ' - \u20AC '+ item.Price + '\n';
               })
               console.log(productenString);
-         const mailOptions = {
-          from: process.env.EMAIL,
-          to: oldOrder.user.email,
-          subject: `Bevestiging  van bestelling bij Bisouterie d'Amelie`,
-          text: `Hoeraaa ${oldOrder.orderedBy}\n\n
-Bedankt voor je bestelling!\n\n
-We hebben je betaling goed ontvangen en gaan meteen voor jou aan de slag.\n\n
-Ter controle vind je hieronder nogmaals je bestelgegevens. Aarzel niet om contact op te nemen indien je nog vragen hebt over jouw bestelling. 
-Je mag ons altijd mailen via bisouterie-amelie@gmail.com.\n\n
-Adres: ${oldOrder.adress}
-Bestelling:\n 
-${productenString}\n
-En nu?\n
-Sit back en relax, want binnenkort straal jij met jouw nieuwe juweel (of juwelen) van Bisouterie d’Amelie!\n 
-Wanneer jouw bestelling klaar is, neem ik contact met jou op om een passend afhalingsmoment af te spreken. Indien je koos voor de optie ‘verzending’, ontvang je een bevestiging van zodra jouw bestelling verzonden is.\n\n 
-Begin al maar te dagdromen over jouw nieuwe outfit :) !\n\n 
-Bisous,\n\n
-Amelie xxx `,
-        };
+//          const mailOptions = {
+//           from: process.env.EMAIL,
+//           to: oldOrder.user.email,
+//           subject: `Bevestiging  van bestelling bij Bisouterie d'Amelie`,
+//           text: `Hoeraaa ${oldOrder.orderedBy}\n\n
+// Bedankt voor je bestelling!\n\n
+// We hebben je betaling goed ontvangen en gaan meteen voor jou aan de slag.\n\n
+// Ter controle vind je hieronder nogmaals je bestelgegevens. Aarzel niet om contact op te nemen indien je nog vragen hebt over jouw bestelling. 
+// Je mag ons altijd mailen via bisouterie-amelie@gmail.com.\n\n
+// Adres: ${oldOrder.adress}
+// Bestelling:\n 
+// ${productenString}\n
+// En nu?\n
+// Sit back en relax, want binnenkort straal jij met jouw nieuwe juweel (of juwelen) van Bisouterie d’Amelie!\n 
+// Wanneer jouw bestelling klaar is, neem ik contact met jou op om een passend afhalingsmoment af te spreken. Indien je koos voor de optie ‘verzending’, ontvang je een bevestiging van zodra jouw bestelling verzonden is.\n\n 
+// Begin al maar te dagdromen over jouw nieuwe outfit :) !\n\n 
+// Bisous,\n\n
+// Amelie xxx `,
+//         };
 
-         transporter.sendMail(mailOptions, function(error,info){
-            if(error){
-              console.log(error);
-            }
-            else{
-              console.log('Email verzonden: '+ info.response);
-            }
-         });
+//          transporter.sendMail(mailOptions, function(error,info){
+//             if(error){
+//               console.log(error);
+//             }
+//             else{
+//               console.log('Email verzonden: '+ info.response);
+//             }
+//          });
         
           return sanitizeEntity(updateOrder, { model: strapi.models.order})
        }
