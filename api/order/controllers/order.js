@@ -109,9 +109,9 @@ module.exports = {
             orderedBy: orderedBy,
             delivery: delivery
           })
-          console.log('----------------------');
-          console.log(newOrder)
-          console.log('----------------------');
+          // console.log('----------------------');
+          // console.log(newOrder.id);
+          // console.log('----------------------');
           const payment = await mollieClient.payments.create({
             amount: {
               currency: 'EUR',
@@ -127,9 +127,10 @@ module.exports = {
 
           console.log(payment);
           console.log('----------------------');
+          const orderId = newOrder.id;
           
           //na het aanmaken van de payment het mollie id wegschrijven naar de strapi-db
-          const updatedOrderWithMollieId = await strapi.services.order.update({id}, {mollie_id: payment.id});
+          const updatedOrderWithMollieId = await strapi.services.order.update({orderId}, {mollie_id: payment.id});
           console.log(updatedOrderWithMollieId);
 
           return payment;
